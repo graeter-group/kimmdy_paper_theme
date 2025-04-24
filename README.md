@@ -7,6 +7,7 @@ Install using
 pip install -e ./
 ```
 
+## Usage
 To use do either
 
 ```python
@@ -39,8 +40,13 @@ ax.plot(xs, ys, label="Kimmdy values", color=plot_colors["kimmdy"])
 ```
 
 All matplotlib settings can be changed in [kimmdy_paper_theme.py](kimmdy_paper_theme/kimmdy_paper_theme.py)
+Specifically with `default_plot_config`.
+
 
 ## Colors
+
+These can be changed in [kimmdy_paper_theme.py](kimmdy_paper_theme/kimmdy_paper_theme.py)
+with `category_color` and `plot_colors`.
 
 Current category colors are:
 
@@ -49,6 +55,8 @@ Current category colors are:
 The currently available color palette:
 
 ![color_categories.png](kimmdy_paper_theme/color_categories.png)
+
+
 
 ## Example plot from [example_plot.py](example_usage/example_plot.py):
 
