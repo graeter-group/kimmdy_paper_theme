@@ -50,11 +50,11 @@ with `category_color` and `plot_colors`.
 
 Current category colors are:
 
-![color_palette.png](kimmdy_paper_theme/color_palette.png)
+![color_categories.png](kimmdy_paper_theme/color_categories.png)
 
 The currently available color palette:
 
-![color_categories.png](kimmdy_paper_theme/color_categories.png)
+![color_palette.png](kimmdy_paper_theme/color_palette.png)
 
 
 
