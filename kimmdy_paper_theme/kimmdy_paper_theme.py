@@ -44,7 +44,7 @@ default_plot_config = {
     # Font sizes (good for figsize ~ (10, 10); adjust as needed for smaller/larger figures)
     'xtick.labelsize': 24,            # Font size for x-axis tick labels
     'ytick.labelsize': 24,            # Font size for y-axis tick labels
-    'axes.titlesize': 36,             # Font size for the axes (subplot) title
+    'axes.titlesize': 30,             # Font size for the axes (subplot) title
     'axes.labelsize': 26,             # Font size for axis labels (x and y labels)
     'legend.fontsize': 20,            # Font size for legend text
     'figure.titlesize': 30,           # Font size for the figure-level suptitle
