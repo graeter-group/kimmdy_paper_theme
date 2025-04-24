@@ -91,7 +91,12 @@ default_plot_config = {
     'legend.framealpha': 0,           # Fully transparent legend background (has no effect if frame is off)
 
     # Saving quality
-    'savefig.dpi': 400
+    'savefig.dpi': 400,
+
+    # Grid style
+    'grid.color': '#EAEAEA',
+    'grid.linestyle':  '-',
+    'grid.linewidth': 0.7,
 }
 
 
