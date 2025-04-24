@@ -70,6 +70,8 @@ ax.bar(xs + 2*offset, ys_experiment, width=width, label="Experiment", color=plot
 ax.set_xlabel("x axis")
 ax.set_ylabel("y axis")
 
+ax.grid(True)
+
 ax.legend()
 plt.tight_layout()
 fig.savefig("example.png", bbox_inches='tight')
