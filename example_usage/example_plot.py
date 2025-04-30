@@ -35,12 +35,11 @@ ys_kimmdy_1 = 1.1 * np.sin(xs*0.95)
 ys_kimmdy_2 = 0.9 * np.sin(xs*1.05)
 
 
-# fig, axes = plt.subplots(2, 1, figsize=(single_column, single_column))
 fig, ax = plt.subplots()
 
 
 ax.scatter(xs, ys_experiment, label="Experiment", color=plot_colors["experiment"],
-           facecolor="None", edgecolors="black")  # Make transparent with only outline
+           facecolor="None", edgecolors="black", linewidth=0.5)  # Make transparent with only outline
 ax.plot(xs, ys_kimmdy_1, label="Kimmdy 1", color=plot_colors["kimmdy"])
 ax.plot(xs, ys_kimmdy_2, label="Kimmdy 2", color=plot_colors["kimmdy_light"])
 
