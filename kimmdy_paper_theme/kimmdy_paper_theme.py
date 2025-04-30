@@ -1,5 +1,17 @@
 import matplotlib.pyplot as plt
 import seaborn as sns
+from PIL import Image
+
+# Nature guide
+single_column_mm = 88
+double_column_mm = 180
+
+
+def mm_to_inch(x_mm):
+    return x_mm * 0.0393700787
+
+
+single_column, double_column = mm_to_inch(single_column_mm), mm_to_inch(double_column_mm)
 
 # --- Set here the color by category ---
 # The colors are defined below
@@ -42,18 +54,20 @@ plot_colors = {**plot_colors, **{category: plot_colors[color_ref] for category, 
 
 default_plot_config = {
     # Font sizes (good for figsize ~ (10, 10); adjust as needed for smaller/larger figures)
-    'xtick.labelsize': 24,            # Font size for x-axis tick labels
-    'ytick.labelsize': 24,            # Font size for y-axis tick labels
-    'axes.titlesize': 30,             # Font size for the axes (subplot) title
-    'axes.labelsize': 26,             # Font size for axis labels (x and y labels)
-    'legend.fontsize': 20,            # Font size for legend text
-    'figure.titlesize': 30,           # Font size for the figure-level suptitle
+    'xtick.labelsize': 7,            # Font size for x-axis tick labels
+    'ytick.labelsize': 7,            # Font size for y-axis tick labels
+    'axes.titlesize': 7,             # Font size for the axes (subplot) title
+    'axes.labelsize': 7,             # Font size for axis labels (x and y labels)
+    'legend.fontsize': 7,            # Font size for legend text
+    'figure.titlesize': 7,           # Font size for the figure-level suptitle
 
     # Line and border thickness
-    'lines.linewidth': 2.61,          # Width of plotted lines
-    'axes.linewidth': 2.61,           # Width of axes border/spines
-    'xtick.major.width': 2.61,        # Width of major x-axis ticks
-    'ytick.major.width': 2.61,        # Width of major y-axis ticks
+    'lines.linewidth': 1.5,          # Width of plotted lines
+    'axes.linewidth': 0.8,           # Width of axes border/spines
+    'xtick.major.width': 0.8,        # Width of major x-axis ticks
+    'ytick.major.width': 0.8,        # Width of major y-axis ticks
+    'xtick.major.size': 3,
+    'ytick.major.size': 3,
 
     # Tick visibility
     'xtick.top': True,                # Show ticks on top of x-axis
@@ -72,7 +86,7 @@ default_plot_config = {
     'ytick.direction': 'inout',       # Ticks on y-axis point both in and out
 
     # Marker and font settings
-    'lines.markersize': 6,           # Size of markers on lines
+    'lines.markersize': 2,           # Size of markers on lines
     'font.sans-serif': ['Roboto'],    # Set sans-serif font; list format ensures fallback options
     'axes.labelcolor': 'black',       # Color for axis labels
 
@@ -82,21 +96,28 @@ default_plot_config = {
     'ytick.color': 'black',           # Color of y-axis tick labels and ticks
 
     # Background transparency (RGBA, where A=0 means fully transparent)
-    'savefig.facecolor': (0.0, 0.0, 0.0, 0.0),  # Transparent background when saving the figure
-    'figure.facecolor': (0.0, 0.0, 0.0, 0.0),   # Transparent background of the figure itself
-    'axes.facecolor': (0.0, 0.0, 0.0, 0.0),     # Transparent background inside each axes
+    # 'savefig.facecolor': (0.0, 0.0, 0.0, 0.0),  # Transparent background when saving the figure
+    # 'figure.facecolor': (0.0, 0.0, 0.0, 0.0),   # Transparent background of the figure itself
+    # 'axes.facecolor': (0.0, 0.0, 0.0, 0.0),     # Transparent background inside each axes
 
     # Legend appearance
     'legend.frameon': False,          # Don't draw a frame (box) around the legend
     'legend.framealpha': 0,           # Fully transparent legend background (has no effect if frame is off)
 
     # Saving quality
-    'savefig.dpi': 400,
+    'savefig.dpi': 300,
+    'savefig.bbox': 'tight',
 
     # Grid style
     'grid.color': '#EAEAEA',
     'grid.linestyle':  '-',
     'grid.linewidth': 0.7,
+
+    # Nature guide
+    'pdf.fonttype': 42,
+
+    "figure.figsize": [single_column, single_column/1.33333]
+
 }
 
 
@@ -130,6 +151,21 @@ def auto_init():
     apply_plot_config(plot_config=default_plot_config)  # Apply custom matplotlib style
     init_roboto_font()
     return plot_colors
+
+
+def convert_to_rgb(outputfile):
+    img = Image.open(outputfile)
+    print(f"File {outputfile} mode BEFORE: {img.mode}")
+
+    print("Convert to RGB")
+    img = img.convert("RGB")
+    img.save(outputfile)
+
+    img = Image.open(outputfile)
+    print(f"File {outputfile} mode AFTER: {img.mode}")
+
+    mode_after = img.mode
+    return mode_after
 
 
 if __name__ == "__main__":

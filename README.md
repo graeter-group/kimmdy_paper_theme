@@ -8,6 +8,12 @@ pip install -e ./
 ```
 
 ## Usage
+
+Note: The default figsize is single column width (88 mm) and the fontsize is 7pt as
+required by Nature. To get the single/double size in inches for custom manipulation 
+do `from kimmdy_paper_theme import single_column, double_column`. The default for new figures
+is `figsize=(single_column, single_column/1.3333)`.
+
 To use do either
 
 ```python
@@ -42,6 +48,12 @@ ax.plot(xs, ys, label="Kimmdy values", color=plot_colors["kimmdy"])
 All matplotlib settings can be changed in [kimmdy_paper_theme.py](kimmdy_paper_theme/kimmdy_paper_theme.py)
 Specifically with `default_plot_config`.
 
+To convert to RGB mode use
+```python
+kimmdy_paper_theme.convert_to_rgb("example1.png")
+```
+like in the example.
+
 
 ## Colors
 
@@ -60,7 +72,9 @@ The currently available color palette:
 
 ## Example plot from [example_plot.py](example_usage/example_plot.py):
 
-![example.png](example_usage/example.png)
+![example1.png](example_usage/example1.png)
+
+![example2.png](example_usage/example2.png)
 
 ## SVG
 
